@@ -2,18 +2,20 @@
 #include <cstdint>
 
 // Canvas and window sizing (pixels)
-static constexpr float CANVAS_W = 340.0f;
-static constexpr float CANVAS_H = 460.0f;
-static constexpr float HUD_H    = 45.0f;
+static constexpr float CANVAS_W        = 340.0f;
+static constexpr float CANVAS_H        = 460.0f;
+static constexpr float HUD_H           = 45.0f;
+static constexpr float SUPPRESS_BAR_H  = 30.0f;
 // Outer window: canvas + padding (8px each side) + title bar (~19px)
 static constexpr float WIN_W    = CANVAS_W + 16.0f;
-static constexpr float WIN_H    = CANVAS_H + HUD_H + 35.0f;
+static constexpr float WIN_H    = CANVAS_H + HUD_H + SUPPRESS_BAR_H + 35.0f;
 
 static constexpr int MAX_BULLETS   = 256;
 static constexpr int MAX_ENEMIES   = 96;
 static constexpr int MAX_PARTICLES = 192;
 static constexpr int NUM_STARS     = 60;
 static constexpr int PLAYER_LIVES  = 3;
+static constexpr int PLAYER_BOMBS  = 2;
 
 enum class GameState { Menu, Playing, GameOver, EventClose };
 
@@ -67,6 +69,7 @@ struct GameInput {
     float dx;       // -1/0/1 horizontal
     float dy;       // -1/0/1 vertical
     bool  fire;
+    bool  bomb;
     bool  confirm;  // start / restart
 };
 
@@ -79,6 +82,7 @@ struct GameData {
     Star      stars[NUM_STARS];
     int       score;
     int       highScore;
+    int       bombs;
     float     elapsed;      // seconds since current game started
     float     spawnTimer;   // seconds until next enemy spawn
     bool      warningShown; // 1-minute warning popup already shown this game

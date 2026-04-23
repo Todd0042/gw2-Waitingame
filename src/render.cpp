@@ -196,6 +196,22 @@ static void DrawHUD(ImDrawList* dl, ImVec2 ho, const EventCountdown& ec) {
         );
     }
 
+    // Bomb icons — small cyan diamonds to the left of the life ships
+    if (g_game.state == GameState::Playing || g_game.state == GameState::GameOver) {
+        float bombBase = ho.x + CANVAS_W - 20.0f - (float)PLAYER_LIVES * 18.0f - 18.0f;
+        float by = ho.y + HUD_H * 0.5f;
+        for (int i = 0; i < g_game.bombs; i++) {
+            float bx = bombBase - i * 14.0f;
+            dl->AddQuadFilled(
+                { bx + 5.0f, by - 5.0f },
+                { bx + 10.0f, by        },
+                { bx + 5.0f, by + 5.0f },
+                { bx,         by        },
+                IM_COL32(80, 200, 255, 200)
+            );
+        }
+    }
+
     // Event countdown (right side, above lives row)
     if (ec.valid) {
         int mins = ec.secondsUntil / 60;
@@ -255,7 +271,7 @@ static void DrawMenu(ImDrawList* dl, ImVec2 co, const EventCountdown& ec) {
     }
 
     ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 0.8f));
-    CenteredText(co, co.y + 310.0f, "Arrow keys: move   Space: shoot");
+    CenteredText(co, co.y + 310.0f, "Arrows: move   LShift: shoot   CapsLock: bomb");
     ImGui::PopStyleColor();
 
     ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 0.3f, 1.0f));
@@ -383,7 +399,8 @@ void OnRender() {
         if (io.KeysDown[VK_RIGHT]) input.dx += 1.0f;
         if (io.KeysDown[VK_UP])    input.dy -= 1.0f;
         if (io.KeysDown[VK_DOWN])  input.dy += 1.0f;
-        input.fire = io.KeysDown[VK_SPACE] != 0;
+        input.fire = io.KeyShift;
+        input.bomb = ImGui::IsKeyPressed(VK_CAPITAL, false);
     }
     if (!s_confirmBlocked && (g_game.state == GameState::Menu || g_game.state == GameState::GameOver))
         input.confirm = ImGui::IsKeyPressed(VK_RETURN, false) || ImGui::IsKeyPressed(VK_SPACE, false);
@@ -450,6 +467,14 @@ void OnRender() {
     ImGui::SetCursorScreenPos({ cs.x, cs.y + HUD_H + CANVAS_H - 1.0f });
     ImGui::Dummy({ 1.0f, 1.0f });
 
+    // Keystroke-suppression bar: click to focus → ImGui sets WantCaptureKeyboard,
+    // preventing arrow/shift/etc. from reaching GW2. Click elsewhere to release.
+    ImGui::SetCursorScreenPos({ cs.x, cs.y + HUD_H + CANVAS_H + 4.0f });
+    ImGui::SetNextItemWidth(CANVAS_W);
+    static char s_suppressBuf[] = "click here to suppress keystrokes in-game";
+    ImGui::InputText("##suppress", s_suppressBuf, sizeof(s_suppressBuf),
+                     ImGuiInputTextFlags_ReadOnly);
+
     // ---- Warning popup (1-minute event alert) -------------------------------
     if (s_triggerWarning) {
         ImGui::SetNextWindowPos(
@@ -481,24 +506,6 @@ void OnRender() {
             ImGui::CloseCurrentPopup();
         }
         ImGui::EndPopup();
-    }
-
-    // Hidden 1-pixel InputText to hold keyboard focus while playing.
-    // An active ImGui widget sets io.WantCaptureKeyboard, which tells Nexus
-    // to swallow the key events before they reach GW2.
-    if (g_game.state == GameState::Playing && !s_popupIsOpen) {
-        ImGui::SetCursorScreenPos(cs);
-        ImGui::PushStyleVar(ImGuiStyleVar_FramePadding,    { 0.f, 0.f });
-        ImGui::PushStyleColor(ImGuiCol_FrameBg,        { 0.f, 0.f, 0.f, 0.f });
-        ImGui::PushStyleColor(ImGuiCol_FrameBgHovered, { 0.f, 0.f, 0.f, 0.f });
-        ImGui::PushStyleColor(ImGuiCol_FrameBgActive,  { 0.f, 0.f, 0.f, 0.f });
-        ImGui::SetNextItemWidth(1.f);
-        ImGui::SetKeyboardFocusHere();
-        static char s_kbbuf[2] = {};
-        ImGui::InputText("##kb", s_kbbuf, sizeof(s_kbbuf), ImGuiInputTextFlags_ReadOnly);
-        ImGui::PopStyleColor(3);
-        ImGui::PopStyleVar();
-        io.WantCaptureKeyboard = true;
     }
 
     // Save if window X button was clicked this frame

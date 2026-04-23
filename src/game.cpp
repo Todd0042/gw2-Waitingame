@@ -77,6 +77,7 @@ void Game_Reset() {
     g_game.state         = GameState::Playing;
     g_game.player.pos    = { CANVAS_W * 0.5f, CANVAS_H - 60.0f };
     g_game.player.lives  = PLAYER_LIVES;
+    g_game.bombs         = PLAYER_BOMBS;
     g_game.spawnTimer    = 1.5f;
     g_game.closeTimer    = 3.0f;
 }
@@ -212,6 +213,22 @@ static void UpdatePlaying(float dt, const GameInput& in) {
 
     if (pl.invTimer  > 0) pl.invTimer  -= dt;
     if (pl.fireTimer > 0) pl.fireTimer -= dt;
+
+    // Bomb — clears all enemies and their bullets
+    if (in.bomb && g_game.bombs > 0) {
+        g_game.bombs--;
+        for (int i = 0; i < MAX_ENEMIES; i++) {
+            if (!g_game.enemies[i].active) continue;
+            int t = g_game.enemies[i].type;
+            g_game.score += s_ePts[t];
+            if (g_game.score > g_game.highScore) g_game.highScore = g_game.score;
+            Game_SpawnParticles(g_game.enemies[i].pos, 14, 90.0f, s_eColor[t]);
+            g_game.enemies[i].active = false;
+        }
+        for (int i = 0; i < MAX_BULLETS; i++)
+            if (g_game.bullets[i].isEnemy) g_game.bullets[i].active = false;
+        Game_SpawnParticles(pl.pos, 24, 160.0f, MakeColor(255, 220, 80));
+    }
 
     // Shooting
     if (in.fire && pl.fireTimer <= 0.0f) {
