@@ -1,0 +1,30 @@
+CMakeFiles/waitingame.dir/src/events.cpp.obj: \
+ /home/todd/gw2-waitiingame/src/events.cpp \
+ /home/todd/gw2-waitiingame/src/events.h \
+ /usr/x86_64-w64-mingw32/include/c++/15.2.0/cstdint \
+ /usr/x86_64-w64-mingw32/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
+ /usr/x86_64-w64-mingw32/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+ /usr/x86_64-w64-mingw32/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+ /usr/x86_64-w64-mingw32/include/c++/15.2.0/pstl/pstl_config.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
+ /usr/x86_64-w64-mingw32/include/stdint.h \
+ /usr/x86_64-w64-mingw32/include/crtdefs.h \
+ /usr/x86_64-w64-mingw32/include/corecrt.h \
+ /usr/x86_64-w64-mingw32/include/_mingw.h \
+ /usr/x86_64-w64-mingw32/include/_mingw_mac.h \
+ /usr/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ /usr/x86_64-w64-mingw32/include/vadefs.h \
+ /usr/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
+ /usr/x86_64-w64-mingw32/include/stddef.h \
+ /usr/x86_64-w64-mingw32/include/c++/15.2.0/ctime \
+ /usr/x86_64-w64-mingw32/include/time.h \
+ /usr/x86_64-w64-mingw32/include/sys/timeb.h \
+ /usr/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+ /usr/x86_64-w64-mingw32/include/_timeval.h \
+ /usr/x86_64-w64-mingw32/include/pthread_time.h \
+ /usr/x86_64-w64-mingw32/include/pthread_compat.h \
+ /usr/x86_64-w64-mingw32/include/c++/15.2.0/climits \
+ /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/limits.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/syslimits.h \
+ /usr/x86_64-w64-mingw32/include/limits.h
