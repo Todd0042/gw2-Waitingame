@@ -9,5 +9,7 @@ Expected behavior for event detection: random next event by default, if on a map
 
 Controls:
 text box available to not leak controls into game. click inside to capture controls, click outside to release.
+
 up, down, left, right - movement
+
 shift, caps lock - fire main weapon or bomb (2 bombs per life)
