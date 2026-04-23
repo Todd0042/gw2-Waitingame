@@ -1,3 +1,4 @@
+<img width="356" height="568" alt="Screenshot_20260423_185125" src="https://github.com/user-attachments/assets/36f1f430-2bfe-4fba-8515-7c4f135179c2" />
 SHMUP Game for Nexus for while waiting for the event to happen.
 
 Build using AI. If that's a problem for you just don't use it and don't recomment it.
