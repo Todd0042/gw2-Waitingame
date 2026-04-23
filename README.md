@@ -1,4 +1,4 @@
-SHMUP Game for while waiting for the event to happen.
+SHMUP Game for Nexus for while waiting for the event to happen.
 
 Build using AI. If that's a problem for you just don't use it and don't recomment it.
 
