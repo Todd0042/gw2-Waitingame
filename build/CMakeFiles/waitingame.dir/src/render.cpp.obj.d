@@ -1,7 +1,7 @@
 CMakeFiles/waitingame.dir/src/render.cpp.obj: \
- /home/todd/gw2-waitiingame/src/render.cpp \
- /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui.h \
- /home/todd/gw2-waitiingame/deps/nexus/imgui/imconfig.h \
+ /home/todd/gw2-waitingame\ copy/src/render.cpp \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui.h \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imconfig.h \
  /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
  /usr/x86_64-w64-mingw32/include/float.h \
  /usr/x86_64-w64-mingw32/include/crtdefs.h \
@@ -35,7 +35,7 @@ CMakeFiles/waitingame.dir/src/render.cpp.obj: \
  /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
  /usr/x86_64-w64-mingw32/include/errno.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/bits/std_abs.h \
- /home/todd/gw2-waitiingame/deps/nexus/Nexus.h \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/Nexus.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/cstdint \
  /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
  /usr/x86_64-w64-mingw32/include/stdint.h \
@@ -240,8 +240,8 @@ CMakeFiles/waitingame.dir/src/render.cpp.obj: \
  /usr/x86_64-w64-mingw32/include/winsvc.h \
  /usr/x86_64-w64-mingw32/include/mcx.h \
  /usr/x86_64-w64-mingw32/include/imm.h \
- /home/todd/gw2-waitiingame/src/game.h \
- /home/todd/gw2-waitiingame/src/events.h \
+ /home/todd/gw2-waitingame\ copy/src/game.h \
+ /home/todd/gw2-waitingame\ copy/src/events.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/chrono \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/bits/chrono.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/ratio \

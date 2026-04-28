@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/todd/gw2-waitiingame
+CMAKE_SOURCE_DIR = "/home/todd/gw2-waitingame copy"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/todd/gw2-waitiingame/build
+CMAKE_BINARY_DIR = "/home/todd/gw2-waitingame copy/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/waitingame.dir/depend.make
@@ -74,123 +74,123 @@ CMakeFiles/waitingame.dir/codegen:
 
 CMakeFiles/waitingame.dir/src/addon.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/src/addon.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/src/addon.cpp.obj: /home/todd/gw2-waitiingame/src/addon.cpp
+CMakeFiles/waitingame.dir/src/addon.cpp.obj: /home/todd/gw2-waitingame\ copy/src/addon.cpp
 CMakeFiles/waitingame.dir/src/addon.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/waitingame.dir/src/addon.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/addon.cpp.obj -MF CMakeFiles/waitingame.dir/src/addon.cpp.obj.d -o CMakeFiles/waitingame.dir/src/addon.cpp.obj -c /home/todd/gw2-waitiingame/src/addon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/waitingame.dir/src/addon.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/addon.cpp.obj -MF CMakeFiles/waitingame.dir/src/addon.cpp.obj.d -o CMakeFiles/waitingame.dir/src/addon.cpp.obj -c "/home/todd/gw2-waitingame copy/src/addon.cpp"
 
 CMakeFiles/waitingame.dir/src/addon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/src/addon.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/src/addon.cpp > CMakeFiles/waitingame.dir/src/addon.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/src/addon.cpp" > CMakeFiles/waitingame.dir/src/addon.cpp.i
 
 CMakeFiles/waitingame.dir/src/addon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/src/addon.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/src/addon.cpp -o CMakeFiles/waitingame.dir/src/addon.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/src/addon.cpp" -o CMakeFiles/waitingame.dir/src/addon.cpp.s
 
 CMakeFiles/waitingame.dir/src/events.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/src/events.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/src/events.cpp.obj: /home/todd/gw2-waitiingame/src/events.cpp
+CMakeFiles/waitingame.dir/src/events.cpp.obj: /home/todd/gw2-waitingame\ copy/src/events.cpp
 CMakeFiles/waitingame.dir/src/events.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/waitingame.dir/src/events.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/events.cpp.obj -MF CMakeFiles/waitingame.dir/src/events.cpp.obj.d -o CMakeFiles/waitingame.dir/src/events.cpp.obj -c /home/todd/gw2-waitiingame/src/events.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/waitingame.dir/src/events.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/events.cpp.obj -MF CMakeFiles/waitingame.dir/src/events.cpp.obj.d -o CMakeFiles/waitingame.dir/src/events.cpp.obj -c "/home/todd/gw2-waitingame copy/src/events.cpp"
 
 CMakeFiles/waitingame.dir/src/events.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/src/events.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/src/events.cpp > CMakeFiles/waitingame.dir/src/events.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/src/events.cpp" > CMakeFiles/waitingame.dir/src/events.cpp.i
 
 CMakeFiles/waitingame.dir/src/events.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/src/events.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/src/events.cpp -o CMakeFiles/waitingame.dir/src/events.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/src/events.cpp" -o CMakeFiles/waitingame.dir/src/events.cpp.s
 
 CMakeFiles/waitingame.dir/src/game.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/src/game.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/src/game.cpp.obj: /home/todd/gw2-waitiingame/src/game.cpp
+CMakeFiles/waitingame.dir/src/game.cpp.obj: /home/todd/gw2-waitingame\ copy/src/game.cpp
 CMakeFiles/waitingame.dir/src/game.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/waitingame.dir/src/game.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/game.cpp.obj -MF CMakeFiles/waitingame.dir/src/game.cpp.obj.d -o CMakeFiles/waitingame.dir/src/game.cpp.obj -c /home/todd/gw2-waitiingame/src/game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/waitingame.dir/src/game.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/game.cpp.obj -MF CMakeFiles/waitingame.dir/src/game.cpp.obj.d -o CMakeFiles/waitingame.dir/src/game.cpp.obj -c "/home/todd/gw2-waitingame copy/src/game.cpp"
 
 CMakeFiles/waitingame.dir/src/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/src/game.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/src/game.cpp > CMakeFiles/waitingame.dir/src/game.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/src/game.cpp" > CMakeFiles/waitingame.dir/src/game.cpp.i
 
 CMakeFiles/waitingame.dir/src/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/src/game.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/src/game.cpp -o CMakeFiles/waitingame.dir/src/game.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/src/game.cpp" -o CMakeFiles/waitingame.dir/src/game.cpp.s
 
 CMakeFiles/waitingame.dir/src/render.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/src/render.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/src/render.cpp.obj: /home/todd/gw2-waitiingame/src/render.cpp
+CMakeFiles/waitingame.dir/src/render.cpp.obj: /home/todd/gw2-waitingame\ copy/src/render.cpp
 CMakeFiles/waitingame.dir/src/render.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/waitingame.dir/src/render.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/render.cpp.obj -MF CMakeFiles/waitingame.dir/src/render.cpp.obj.d -o CMakeFiles/waitingame.dir/src/render.cpp.obj -c /home/todd/gw2-waitiingame/src/render.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/waitingame.dir/src/render.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/src/render.cpp.obj -MF CMakeFiles/waitingame.dir/src/render.cpp.obj.d -o CMakeFiles/waitingame.dir/src/render.cpp.obj -c "/home/todd/gw2-waitingame copy/src/render.cpp"
 
 CMakeFiles/waitingame.dir/src/render.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/src/render.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/src/render.cpp > CMakeFiles/waitingame.dir/src/render.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/src/render.cpp" > CMakeFiles/waitingame.dir/src/render.cpp.i
 
 CMakeFiles/waitingame.dir/src/render.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/src/render.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/src/render.cpp -o CMakeFiles/waitingame.dir/src/render.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/src/render.cpp" -o CMakeFiles/waitingame.dir/src/render.cpp.s
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj: /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui.cpp
+CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj: /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui.cpp
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj -c /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj -c "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui.cpp"
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui.cpp > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui.cpp" > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.i
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui.cpp -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui.cpp" -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.s
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj: /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_draw.cpp
+CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj: /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui_draw.cpp
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj -c /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj -c "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_draw.cpp"
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_draw.cpp > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_draw.cpp" > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.i
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_draw.cpp -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_draw.cpp" -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.s
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj: /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_widgets.cpp
+CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj: /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui_widgets.cpp
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj -c /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_widgets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj -c "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_widgets.cpp"
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_widgets.cpp > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_widgets.cpp" > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.i
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_widgets.cpp -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_widgets.cpp" -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.s
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: CMakeFiles/waitingame.dir/flags.make
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: CMakeFiles/waitingame.dir/includes_CXX.rsp
-CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_tables.cpp
+CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui_tables.cpp
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: CMakeFiles/waitingame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj -c /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_tables.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj"
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj -MF CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj.d -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj -c "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_tables.cpp"
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_tables.cpp > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.i
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_tables.cpp" > CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.i
 
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_tables.cpp -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.s
+	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_tables.cpp" -o CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.s
 
 # Object files for target waitingame
 waitingame_OBJECTS = \
@@ -218,7 +218,7 @@ waitingame.dll: CMakeFiles/waitingame.dir/build.make
 waitingame.dll: CMakeFiles/waitingame.dir/linkLibs.rsp
 waitingame.dll: CMakeFiles/waitingame.dir/objects1.rsp
 waitingame.dll: CMakeFiles/waitingame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/todd/gw2-waitiingame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX shared library waitingame.dll"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/todd/gw2-waitingame copy/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX shared library waitingame.dll"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/waitingame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -230,6 +230,6 @@ CMakeFiles/waitingame.dir/clean:
 .PHONY : CMakeFiles/waitingame.dir/clean
 
 CMakeFiles/waitingame.dir/depend:
-	cd /home/todd/gw2-waitiingame/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/todd/gw2-waitiingame /home/todd/gw2-waitiingame /home/todd/gw2-waitiingame/build /home/todd/gw2-waitiingame/build /home/todd/gw2-waitiingame/build/CMakeFiles/waitingame.dir/DependInfo.cmake "--color=$(COLOR)" waitingame
+	cd "/home/todd/gw2-waitingame copy/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/todd/gw2-waitingame copy" "/home/todd/gw2-waitingame copy" "/home/todd/gw2-waitingame copy/build" "/home/todd/gw2-waitingame copy/build" "/home/todd/gw2-waitingame copy/build/CMakeFiles/waitingame.dir/DependInfo.cmake" "--color=$(COLOR)" waitingame
 .PHONY : CMakeFiles/waitingame.dir/depend
 

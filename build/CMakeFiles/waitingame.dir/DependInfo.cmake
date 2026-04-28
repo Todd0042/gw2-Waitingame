@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/todd/gw2-waitiingame/deps/nexus/imgui/imgui.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj.d"
-  "/home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_draw.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj.d"
-  "/home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_tables.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj.d"
-  "/home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_widgets.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj.d"
-  "/home/todd/gw2-waitiingame/src/addon.cpp" "CMakeFiles/waitingame.dir/src/addon.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/addon.cpp.obj.d"
-  "/home/todd/gw2-waitiingame/src/events.cpp" "CMakeFiles/waitingame.dir/src/events.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/events.cpp.obj.d"
-  "/home/todd/gw2-waitiingame/src/game.cpp" "CMakeFiles/waitingame.dir/src/game.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/game.cpp.obj.d"
-  "/home/todd/gw2-waitiingame/src/render.cpp" "CMakeFiles/waitingame.dir/src/render.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/render.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_draw.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_draw.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_tables.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/deps/nexus/imgui/imgui_widgets.cpp" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_widgets.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/src/addon.cpp" "CMakeFiles/waitingame.dir/src/addon.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/addon.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/src/events.cpp" "CMakeFiles/waitingame.dir/src/events.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/events.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/src/game.cpp" "CMakeFiles/waitingame.dir/src/game.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/game.cpp.obj.d"
+  "/home/todd/gw2-waitingame copy/src/render.cpp" "CMakeFiles/waitingame.dir/src/render.cpp.obj" "gcc" "CMakeFiles/waitingame.dir/src/render.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -1,6 +1,6 @@
 CMakeFiles/waitingame.dir/src/events.cpp.obj: \
- /home/todd/gw2-waitiingame/src/events.cpp \
- /home/todd/gw2-waitiingame/src/events.h \
+ /home/todd/gw2-waitingame\ copy/src/events.cpp \
+ /home/todd/gw2-waitingame\ copy/src/events.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/cstdint \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \

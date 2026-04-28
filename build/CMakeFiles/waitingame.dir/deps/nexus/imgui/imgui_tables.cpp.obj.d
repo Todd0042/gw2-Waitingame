@@ -1,7 +1,7 @@
 CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: \
- /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_tables.cpp \
- /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui.h \
- /home/todd/gw2-waitiingame/deps/nexus/imgui/imconfig.h \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui_tables.cpp \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui.h \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imconfig.h \
  /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/float.h \
  /usr/x86_64-w64-mingw32/include/float.h \
  /usr/x86_64-w64-mingw32/include/crtdefs.h \
@@ -35,7 +35,7 @@ CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: \
  /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
  /usr/x86_64-w64-mingw32/include/errno.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/bits/std_abs.h \
- /home/todd/gw2-waitiingame/deps/nexus/imgui/imgui_internal.h \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imgui_internal.h \
  /usr/x86_64-w64-mingw32/include/stdio.h \
  /usr/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  /usr/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -80,6 +80,6 @@ CMakeFiles/waitingame.dir/deps/nexus/imgui/imgui_tables.cpp.obj: \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/tr1/poly_hermite.tcc \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/tr1/poly_laguerre.tcc \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/tr1/riemann_zeta.tcc \
- /home/todd/gw2-waitiingame/deps/nexus/imgui/imstb_textedit.h \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/imgui/imstb_textedit.h \
  /usr/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
  /usr/x86_64-w64-mingw32/include/stdint.h

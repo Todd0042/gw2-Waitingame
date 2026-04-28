@@ -1,9 +1,9 @@
-set(CMAKE_HOST_SYSTEM "Linux-7.0.0-1-cachyos")
+set(CMAKE_HOST_SYSTEM "Linux-7.0.1-1-cachyos")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "7.0.0-1-cachyos")
+set(CMAKE_HOST_SYSTEM_VERSION "7.0.1-1-cachyos")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/home/todd/gw2-waitiingame/mingw-toolchain.cmake")
+include("/home/todd/gw2-waitingame copy/mingw-toolchain.cmake")
 
 set(CMAKE_SYSTEM "Windows")
 set(CMAKE_SYSTEM_NAME "Windows")

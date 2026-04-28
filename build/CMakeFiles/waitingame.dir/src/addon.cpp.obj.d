@@ -1,6 +1,6 @@
 CMakeFiles/waitingame.dir/src/addon.cpp.obj: \
- /home/todd/gw2-waitiingame/src/addon.cpp \
- /home/todd/gw2-waitiingame/deps/nexus/Nexus.h \
+ /home/todd/gw2-waitingame\ copy/src/addon.cpp \
+ /home/todd/gw2-waitingame\ copy/deps/nexus/Nexus.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/cstdint \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
@@ -235,9 +235,9 @@ CMakeFiles/waitingame.dir/src/addon.cpp.obj: \
  /usr/x86_64-w64-mingw32/include/winsvc.h \
  /usr/x86_64-w64-mingw32/include/mcx.h \
  /usr/x86_64-w64-mingw32/include/imm.h \
- /home/todd/gw2-waitiingame/src/game.h \
- /home/todd/gw2-waitiingame/src/events.h \
- /home/todd/gw2-waitiingame/src/map_png.h \
+ /home/todd/gw2-waitingame\ copy/src/game.h \
+ /home/todd/gw2-waitingame\ copy/src/events.h \
+ /home/todd/gw2-waitingame\ copy/src/map_png.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/atomic \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/bits/version.h \
  /usr/x86_64-w64-mingw32/include/c++/15.2.0/bits/atomic_base.h \

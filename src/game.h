@@ -45,15 +45,36 @@ struct Bullet {
     bool active;
 };
 
+// Boss support
+struct Enemy;
+using BossLaserFunc = void(*)(Enemy&);
+
+enum class BossState {
+    None,
+    MoveToPosition,
+    Pause,
+    FiringLaser
+};
+
 struct Enemy {
     Vec2  pos;
     Vec2  vel;
     float baseX;       // original spawn X for sinusoidal type
     float phase;       // sine phase accumulator (type 1)
     float shootTimer;  // seconds until next shot (type 2)
-    int   type;        // 0=Drone 1=Weaver 2=Gunner 3=Rusher
+    int   type;        // 0=Drone 1=Weaver 2=Gunner 3=Rusher 4=Boss1 5=Boss2
     int   hp;
     bool  active;
+
+    // Boss-specific fields (used when type >= 4)
+    BossState     bossState;
+    BossState     bossNextState;
+    float         bossTimer;
+    float         bossPauseDuration;
+    float         bossLaserDuration;
+    bool          bossLaserActive;
+    float         bossTargetX;
+    BossLaserFunc bossLaserFunc;
 };
 
 struct Particle {
@@ -87,6 +108,12 @@ struct GameData {
     float     spawnTimer;   // seconds until next enemy spawn
     bool      warningShown; // 1-minute warning popup already shown this game
     float     closeTimer;   // EventClose countdown (seconds)
+
+    // Boss / progression control
+    bool      bossActive;
+    bool      boss1Spawned;
+    bool      boss2Spawned;
+    bool      progressionPaused;
 };
 
 extern GameData g_game;

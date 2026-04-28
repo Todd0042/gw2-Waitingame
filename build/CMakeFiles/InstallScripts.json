@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/todd/gw2-waitiingame/build/cmake_install.cmake"
+		"/home/todd/gw2-waitingame copy/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

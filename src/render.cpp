@@ -17,21 +17,30 @@ extern char                   g_addonDir[MAX_PATH];
 // ---------------------------------------------------------------------------
 // File I/O for high score
 // ---------------------------------------------------------------------------
-
-static void SaveHighScore() {
+void SaveHighScore() {
     if (g_game.highScore <= 0 || g_addonDir[0] == '\0') return;
+
     char path[MAX_PATH];
     snprintf(path, sizeof(path), "%s\\score.dat", g_addonDir);
-    FILE* f = fopen(path, "w");
-    if (f) { fprintf(f, "%d", g_game.highScore); fclose(f); }
+
+    FILE* f = fopen(path, "wb");
+    if (f) {
+        fwrite(&g_game.highScore, sizeof(int), 1, f);
+        fclose(f);
+    }
 }
 
 static void LoadHighScore() {
     if (g_addonDir[0] == '\0') return;
+
     char path[MAX_PATH];
     snprintf(path, sizeof(path), "%s\\score.dat", g_addonDir);
-    FILE* f = fopen(path, "r");
-    if (f) { fscanf(f, "%d", &g_game.highScore); fclose(f); }
+
+    FILE* f = fopen(path, "rb");
+    if (f) {
+        fread(&g_game.highScore, sizeof(int), 1, f);
+        fclose(f);
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -39,8 +48,8 @@ static void LoadHighScore() {
 // ---------------------------------------------------------------------------
 
 static bool        s_initialized     = false;
-static bool        s_triggerWarning  = false;  // set true to open popup next frame
-static bool        s_popupIsOpen     = false;  // popup currently visible (game paused)
+static bool        s_triggerWarning  = false;
+static bool        s_popupIsOpen     = false;
 static const char* s_warnEventName   = "the event";
 static const char* s_warnMapName     = "";
 static const char* s_closeEventName  = "the event";
@@ -66,6 +75,87 @@ static void DrawBackground(ImDrawList* dl, ImVec2 co) {
     }
 }
 
+static void DamagePlayerFromLaser() {
+    Player& pl = g_game.player;
+    if (pl.invTimer > 0.0f) return;
+
+    pl.lives--;
+    pl.invTimer = 2.0f;
+    Game_SpawnParticles(pl.pos, 8, 85.0f, MakeColor(80, 200, 255));
+    if (pl.lives <= 0)
+        g_game.state = GameState::GameOver;
+}
+
+static bool PlayerIntersectsRect(float px, float py, float rx1, float ry1, float rx2, float ry2) {
+    return (px >= rx1 && px <= rx2 && py >= ry1 && py <= ry2);
+}
+
+static void DrawBossLasersAndDamage(ImDrawList* dl, ImVec2 co, const Enemy& e) {
+    if (!e.bossLaserActive) return;
+
+    float cx = co.x + e.pos.x;
+    float cy = co.y + e.pos.y;
+    float bottom = co.y + CANVAS_H;
+
+    float px = co.x + g_game.player.pos.x;
+    float py = co.y + g_game.player.pos.y;
+
+    if (e.type == 4) {
+        float half = CANVAS_W * 0.10f;
+        float x1 = cx - half;
+        float x2 = cx + half;
+        float y1 = cy + 12.0f;
+        float y2 = bottom;
+
+        dl->AddRectFilled({ x1, y1 }, { x2, y2 }, IM_COL32(255, 255, 160, 180));
+        dl->AddRectFilled({ cx - half * 0.6f, y1 }, { cx + half * 0.6f, y2 },
+                          IM_COL32(255, 255, 220, 220));
+
+        if (PlayerIntersectsRect(px, py, x1, y1, x2, y2))
+            DamagePlayerFromLaser();
+    }
+
+    if (e.type == 5) {
+        float half = CANVAS_W * 0.05f;
+        float y1 = cy + 12.0f;
+        float y2 = bottom;
+
+        float cx1 = cx - half;
+        float cx2 = cx + half;
+
+        dl->AddRectFilled({ cx1, y1 }, { cx2, y2 }, IM_COL32(160, 255, 255, 180));
+        dl->AddRectFilled({ cx - half * 0.6f, y1 }, { cx + half * 0.6f, y2 },
+                          IM_COL32(220, 255, 255, 220));
+
+        if (PlayerIntersectsRect(px, py, cx1, y1, cx2, y2))
+            DamagePlayerFromLaser();
+
+        float lx1 = cx - 10.0f - half;
+        float lx2 = cx - 10.0f + half;
+        float lx3 = co.x + CANVAS_W * 0.15f - half;
+        float lx4 = co.x + CANVAS_W * 0.15f + half;
+
+        dl->AddQuadFilled(
+            { lx1, y1 }, { lx2, y1 }, { lx4, y2 }, { lx3, y2 },
+            IM_COL32(160, 255, 255, 160)
+        );
+
+        float rx1 = cx + 10.0f - half;
+        float rx2 = cx + 10.0f + half;
+        float rx3 = co.x + CANVAS_W * 0.85f - half;
+        float rx4 = co.x + CANVAS_W * 0.85f + half;
+
+        dl->AddQuadFilled(
+            { rx1, y1 }, { rx2, y1 }, { rx4, y2 }, { rx3, y2 },
+            IM_COL32(160, 255, 255, 160)
+        );
+
+        if (PlayerIntersectsRect(px, py, lx1, y1, lx4, y2) ||
+            PlayerIntersectsRect(px, py, rx1, y1, rx4, y2))
+            DamagePlayerFromLaser();
+    }
+}
+
 static void DrawPlayer(ImDrawList* dl, ImVec2 co) {
     const Player& pl = g_game.player;
     if (pl.invTimer > 0.0f && (int)(pl.invTimer * 8) % 2 == 0) return;
@@ -87,10 +177,12 @@ static void DrawPlayer(ImDrawList* dl, ImVec2 co) {
 
 static void DrawEnemies(ImDrawList* dl, ImVec2 co) {
     static const uint32_t colors[] = {
-        IM_COL32(220,  50,  50, 255),  // Drone
-        IM_COL32(220, 140,  50, 255),  // Weaver
-        IM_COL32(160,  50, 220, 255),  // Gunner
-        IM_COL32(220,  50, 160, 255),  // Rusher
+        IM_COL32(220,  50,  50, 255),
+        IM_COL32(220, 140,  50, 255),
+        IM_COL32(160,  50, 220, 255),
+        IM_COL32(220,  50, 160, 255),
+        IM_COL32(255, 255,  80, 255),
+        IM_COL32(120, 255, 255, 255),
     };
 
     for (int i = 0; i < MAX_ENEMIES; i++) {
@@ -102,7 +194,7 @@ static void DrawEnemies(ImDrawList* dl, ImVec2 co) {
         uint32_t c = colors[e.type];
 
         switch (e.type) {
-            case 0: // Drone — downward-pointing triangle
+            case 0:
                 dl->AddTriangleFilled(
                     { cx,        cy +  9.0f },
                     { cx -  9.0f, cy -  9.0f },
@@ -110,7 +202,8 @@ static void DrawEnemies(ImDrawList* dl, ImVec2 co) {
                     c
                 );
                 break;
-            case 1: // Weaver — diamond
+
+            case 1:
                 dl->AddQuadFilled(
                     { cx,        cy - 10.0f },
                     { cx + 10.0f, cy        },
@@ -119,18 +212,19 @@ static void DrawEnemies(ImDrawList* dl, ImVec2 co) {
                     c
                 );
                 break;
-            case 2: // Gunner — box with side cannons
+
+            case 2:
                 dl->AddRectFilled({ cx - 11.0f, cy - 11.0f }, { cx + 11.0f, cy + 11.0f }, c);
                 dl->AddRectFilled({ cx - 14.0f, cy -  3.0f }, { cx - 11.0f, cy +  3.0f },
                                   IM_COL32(200, 80, 255, 255));
                 dl->AddRectFilled({ cx + 11.0f, cy -  3.0f }, { cx + 14.0f, cy +  3.0f },
                                   IM_COL32(200, 80, 255, 255));
-                // Bright core shows 2 HP remaining
                 if (e.hp >= 2)
                     dl->AddRectFilled({ cx - 7.0f, cy - 7.0f }, { cx + 7.0f, cy + 7.0f },
                                       IM_COL32(220, 180, 50, 160));
                 break;
-            case 3: // Rusher — small sharp triangle
+
+            case 3:
                 dl->AddTriangleFilled(
                     { cx,         cy + 7.0f },
                     { cx -  7.0f, cy - 7.0f },
@@ -138,10 +232,37 @@ static void DrawEnemies(ImDrawList* dl, ImVec2 co) {
                     c
                 );
                 break;
+
+            case 4:
+                dl->AddRectFilled(
+                    { cx - 34.0f, cy - 12.0f },
+                    { cx + 34.0f, cy + 12.0f },
+                    c
+                );
+                dl->AddRectFilled(
+                    { cx - 18.0f, cy - 6.0f },
+                    { cx + 18.0f, cy + 6.0f },
+                    IM_COL32(255, 255, 200, 220)
+                );
+                DrawBossLasersAndDamage(dl, co, e);
+                break;
+
+            case 5:
+                dl->AddRectFilled(
+                    { cx - 34.0f, cy - 12.0f },
+                    { cx + 34.0f, cy + 12.0f },
+                    c
+                );
+                dl->AddRectFilled(
+                    { cx - 18.0f, cy - 6.0f },
+                    { cx + 18.0f, cy + 6.0f },
+                    IM_COL32(200, 255, 255, 220)
+                );
+                DrawBossLasersAndDamage(dl, co, e);
+                break;
         }
     }
 }
-
 static void DrawBullets(ImDrawList* dl, ImVec2 co) {
     for (int i = 0; i < MAX_BULLETS; i++) {
         const Bullet& b = g_game.bullets[i];
@@ -169,22 +290,18 @@ static void DrawParticles(ImDrawList* dl, ImVec2 co) {
 }
 
 static void DrawHUD(ImDrawList* dl, ImVec2 ho, const EventCountdown& ec) {
-    // Background strip
     dl->AddRectFilled(ho, { ho.x + CANVAS_W, ho.y + HUD_H },
                       IM_COL32(5, 5, 15, 230));
     dl->AddLine({ ho.x, ho.y + HUD_H - 1.0f },
                 { ho.x + CANVAS_W, ho.y + HUD_H - 1.0f },
                 IM_COL32(40, 80, 180, 120));
 
-    // Score
     ImGui::SetCursorScreenPos({ ho.x + 8.0f, ho.y + 4.0f });
     ImGui::TextColored({ 0.9f, 0.9f, 0.3f, 1.0f }, "SCORE  %d", g_game.score);
 
-    // High score
     ImGui::SetCursorScreenPos({ ho.x + 8.0f, ho.y + 22.0f });
     ImGui::TextColored({ 0.5f, 0.5f, 0.5f, 1.0f }, "BEST   %d", g_game.highScore);
 
-    // Lives as small ship icons
     for (int i = 0; i < g_game.player.lives; i++) {
         float lx = ho.x + CANVAS_W - 20.0f - i * 18.0f;
         float ly = ho.y + HUD_H * 0.5f;
@@ -196,7 +313,6 @@ static void DrawHUD(ImDrawList* dl, ImVec2 ho, const EventCountdown& ec) {
         );
     }
 
-    // Bomb icons — small cyan diamonds to the left of the life ships
     if (g_game.state == GameState::Playing || g_game.state == GameState::GameOver) {
         float bombBase = ho.x + CANVAS_W - 20.0f - (float)PLAYER_LIVES * 18.0f - 18.0f;
         float by = ho.y + HUD_H * 0.5f;
@@ -212,14 +328,12 @@ static void DrawHUD(ImDrawList* dl, ImVec2 ho, const EventCountdown& ec) {
         }
     }
 
-    // Event countdown (right side, above lives row)
     if (ec.valid) {
         int mins = ec.secondsUntil / 60;
         int secs = ec.secondsUntil % 60;
         float r = 0.9f, g2 = 0.9f, b2 = 0.3f;
         if (ec.secondsUntil <= 60) { r = 1.0f; g2 = 0.3f; b2 = 0.2f; }
 
-        // Truncate long names to keep text in bounds
         char buf[64];
         snprintf(buf, sizeof(buf), "%.18s %02d:%02d", ec.name, mins, secs);
 
@@ -228,10 +342,6 @@ static void DrawHUD(ImDrawList* dl, ImVec2 ho, const EventCountdown& ec) {
         ImGui::TextColored({ r, g2, b2, 1.0f }, "%s", buf);
     }
 }
-
-// ---------------------------------------------------------------------------
-// Overlay screens
-// ---------------------------------------------------------------------------
 
 static void CenteredText(ImVec2 co, float y, const char* text) {
     float tw = ImGui::CalcTextSize(text).x;
@@ -334,10 +444,7 @@ static void DrawEventClose(ImVec2 co) {
 // ---------------------------------------------------------------------------
 
 void OnRender() {
-    // Lazy one-time init (ImGui context is ready by first render frame)
     if (!s_initialized) {
-        // Share Nexus's ImGui context and allocator — without this every
-        // ImGui call dereferences a null GImGui and crashes immediately.
         ImGui::SetCurrentContext(static_cast<ImGuiContext*>(APIDefs->ImguiContext));
         ImGui::SetAllocatorFunctions(
             reinterpret_cast<void*(*)(size_t, void*)>(APIDefs->ImguiMalloc),
@@ -351,20 +458,17 @@ void OnRender() {
 
     if (!g_windowOpen) return;
 
-    // Delta time, capped to prevent spiral-of-death after alt-tab
     static auto s_last = std::chrono::steady_clock::now();
     auto now = std::chrono::steady_clock::now();
     float dt = std::min(std::chrono::duration<float>(now - s_last).count(), 0.05f);
     s_last = now;
 
-    // Resolve event countdown for the current map
     uint32_t mapId = g_currentMapId.load(std::memory_order_relaxed);
     EventCountdown ec = Events_GetForMap(mapId);
-    bool onEventMap = ec.valid;   // true only when the player is on a scheduled event map
+    bool onEventMap = ec.valid;
     if (!ec.valid)
-        ec = Events_GetNextAny(); // always show *some* event in the HUD / menu
+        ec = Events_GetNextAny();
 
-    // ---- Event transition logic (before window / game update) ---------------
     if (g_game.state == GameState::Playing) {
         if (onEventMap && ec.secondsUntil <= 0) {
             s_closeEventName = ec.name;
@@ -378,12 +482,9 @@ void OnRender() {
         }
     }
 
-    // ---- Build input (skipped while popup is open) --------------------------
     GameInput input = {};
     ImGuiIO& io = ImGui::GetIO();
 
-    // Block confirm for one full key-up cycle after entering GameOver so a
-    // shooting keystroke can't instantly restart the game.
     static GameState s_prevState     = GameState::Menu;
     static bool      s_confirmBlocked = false;
     if (g_game.state != s_prevState) {
@@ -405,11 +506,9 @@ void OnRender() {
     if (!s_confirmBlocked && (g_game.state == GameState::Menu || g_game.state == GameState::GameOver))
         input.confirm = ImGui::IsKeyPressed(VK_RETURN, false) || ImGui::IsKeyPressed(VK_SPACE, false);
 
-    // ---- Update game state --------------------------------------------------
     if (!s_popupIsOpen)
         Game_Update(dt, input);
 
-    // ---- Auto-close when EventClose timer expires ---------------------------
     bool wasOpen = g_windowOpen;
     if (g_game.state == GameState::EventClose && g_game.closeTimer <= 0.0f)
         g_windowOpen = false;
@@ -419,7 +518,6 @@ void OnRender() {
         return;
     }
 
-    // ---- Open ImGui window --------------------------------------------------
     ImGui::SetNextWindowSize({ WIN_W, WIN_H }, ImGuiCond_Always);
     ImGuiWindowFlags wflags =
         ImGuiWindowFlags_NoResize      |
@@ -433,14 +531,12 @@ void OnRender() {
         return;
     }
 
-    // Content region origin (top-left of usable area, below title bar)
     ImVec2 cs = ImGui::GetCursorScreenPos();
     ImVec2 hudOrigin    = cs;
     ImVec2 canvasOrigin = { cs.x, cs.y + HUD_H };
 
     ImDrawList* dl = ImGui::GetWindowDrawList();
 
-    // Clip all game drawing to canvas bounds
     dl->PushClipRect(canvasOrigin,
                      { canvasOrigin.x + CANVAS_W, canvasOrigin.y + CANVAS_H },
                      true);
@@ -452,7 +548,6 @@ void OnRender() {
     DrawParticles(dl, canvasOrigin);
     dl->PopClipRect();
 
-    // Overlay screens (drawn after clip pop so text is not clipped)
     if (g_game.state == GameState::Menu)
         DrawMenu(dl, canvasOrigin, ec);
     else if (g_game.state == GameState::GameOver)
@@ -460,22 +555,17 @@ void OnRender() {
     else if (g_game.state == GameState::EventClose)
         DrawEventClose(canvasOrigin);
 
-    // HUD (drawn last so it renders on top of everything)
     DrawHUD(dl, hudOrigin, ec);
 
-    // Consume the canvas area so ImGui knows about the content size
     ImGui::SetCursorScreenPos({ cs.x, cs.y + HUD_H + CANVAS_H - 1.0f });
     ImGui::Dummy({ 1.0f, 1.0f });
 
-    // Keystroke-suppression bar: click to focus → ImGui sets WantCaptureKeyboard,
-    // preventing arrow/shift/etc. from reaching GW2. Click elsewhere to release.
     ImGui::SetCursorScreenPos({ cs.x, cs.y + HUD_H + CANVAS_H + 4.0f });
     ImGui::SetNextItemWidth(CANVAS_W);
     static char s_suppressBuf[] = "click here to suppress keystrokes in-game";
     ImGui::InputText("##suppress", s_suppressBuf, sizeof(s_suppressBuf),
                      ImGuiInputTextFlags_ReadOnly);
 
-    // ---- Warning popup (1-minute event alert) -------------------------------
     if (s_triggerWarning) {
         ImGui::SetNextWindowPos(
             { cs.x + CANVAS_W * 0.5f, cs.y + HUD_H + CANVAS_H * 0.5f },
@@ -487,7 +577,8 @@ void OnRender() {
     }
 
     if (ImGui::BeginPopupModal("##wg_warn", nullptr,
-        ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove |
+        ImGuiWindowFlags_AlwaysAutoResize |
+        ImGuiWindowFlags_NoMove |
         ImGuiWindowFlags_NoTitleBar)) {
 
         ImGui::TextColored({ 1.0f, 0.8f, 0.15f, 1.0f }, "%s", s_warnEventName);
@@ -505,6 +596,7 @@ void OnRender() {
             g_windowOpen = false;
             ImGui::CloseCurrentPopup();
         }
+
         ImGui::EndPopup();
     }
 
@@ -512,5 +604,5 @@ void OnRender() {
     if (wasOpen && !g_windowOpen)
         SaveHighScore();
 
-    ImGui::End();
-}
+    ImGui::End(); // <-- closes the main "Waitingame" window
+} // <-- closes OnRender()
