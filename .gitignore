@@ -16,6 +16,9 @@ cmake_install.cmake
 .ninja_log
 build.ninja
 
+# Local toolchain
+toolchain-mingw.cmake
+
 # IDE
 .vs/
 .vscode/
