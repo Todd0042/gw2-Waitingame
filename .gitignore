@@ -1,0 +1,31 @@
+# Build artifacts
+build/
+*.dll
+*.dll.a
+*.exe
+*.o
+*.a
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Ninja
+.ninja_deps
+.ninja_log
+build.ninja
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# AI/Assistant
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
