@@ -32,3 +32,5 @@ toolchain-mingw.cmake
 # OS
 .DS_Store
 Thumbs.db
+
+Lessons_Learned.md
