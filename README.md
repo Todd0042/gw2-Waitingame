@@ -293,7 +293,7 @@ python3 gen_icon.py
 
 ## 8. Licensing, Third-Party Dependencies & Support
 
-* **Repository License**: No top-level `LICENSE` file is currently included in this repository.
+* **Repository License**: [PolyForm Noncommercial License 1.0.0](LICENSE) — free for personal, hobby, educational, research and nonprofit use; commercial use (inside a company, in a paid product or service, or for profit) requires a separate license from [Todd0042](https://github.com/Todd0042).
 * **Third-Party Components**:
   * **Raidcore Nexus API** ([`deps/nexus/Nexus.h`](deps/nexus/Nexus.h)): Copyright (c) Raidcore.GG, licensed under the MIT License.
   * **Dear ImGui v1.80** ([`deps/nexus/imgui/LICENSE.txt`](deps/nexus/imgui/LICENSE.txt)): Licensed under the MIT License.
@@ -302,7 +302,7 @@ python3 gen_icon.py
 ---
 
 <p align="center">
-  If you enjoy blasting enemies between meta events with Waitingame, consider supporting open-source development:<br/><br/>
+  If you enjoy blasting enemies between meta events with Waitingame, consider supporting its development:<br/><br/>
   <a href="https://ko-fi.com/todd0042" target="_blank">
     <img src="https://img.shields.io/badge/☕_Support_Waitingame_on_Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Support on Ko-fi">
   </a>
